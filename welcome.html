@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Willkommen</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .welcome-box {
+      text-align: center;
+      padding: 3rem;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-box">
+    <h1 id="welcome"></h1>
+    <p>Du bist erfolgreich eingeloggt!</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const user = params.get("user") || "Benutzer";
+
+    document.getElementById("welcome").textContent = `Willkommen ${user}!`;
+  </script>
+</body>
+</html>
